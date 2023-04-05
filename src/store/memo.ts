@@ -5,7 +5,7 @@ export type MemoState = { memoList: Memo[] };
 const initialState: MemoState = { memoList: [] };
 
 export const useMemoStore = defineStore("memo", {
-  state: () => initialState,
+  state: (): MemoState => initialState,
   actions: {
     addMemo(payload: Memo) {
       this.memoList = [...this.memoList, payload];

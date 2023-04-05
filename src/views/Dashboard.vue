@@ -1,5 +1,45 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { v4 as uuid } from "uuid";
+import { storeToRefs } from "pinia";
+import { useMemoStore } from "../store/memo";
+import PostIt from "../components/PostIt.vue";
+
+const memoStore = useMemoStore();
+
+const { memoList } = storeToRefs(memoStore);
+
+const onDblClick = (e: MouseEvent) => {
+  const mousePosition = {
+    x: e.pageX,
+    y: e.pageY,
+  };
+  const defaultBoundingRect = {
+    width: 256,
+    height: 128,
+  };
+  const now = new Date();
+
+  memoStore.addMemo({
+    id: uuid(),
+    content: "",
+    boundingRect: defaultBoundingRect,
+    position: mousePosition,
+    createdAt: now,
+    updatedAt: now,
+  });
+};
+</script>
 
 <template>
-  <div></div>
+  <div class="dashboard__container" @dblclick="onDblClick">
+    <PostIt v-for="memo in memoList" :key="memo.id" :memo="memo" />
+  </div>
 </template>
+
+<style scoped>
+.dashboard__container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+</style>

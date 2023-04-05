@@ -9,7 +9,7 @@ type BoundingRect = {
 };
 
 type Memo = {
-  id: UUID;
+  id: string;
   content: string;
   boundingRect: BoundingRect;
   position: Position;
