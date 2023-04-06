@@ -3,8 +3,10 @@ import { v4 as uuid } from "uuid";
 import { storeToRefs } from "pinia";
 import { useMemoStore } from "../store/memo";
 import PostIt from "../components/PostIt.vue";
+import Toolbar from "../components/Toolbar.vue";
 
 const memoStore = useMemoStore();
+
 const { memoList } = storeToRefs(memoStore);
 
 const handlDashboardDblClick = (e: MouseEvent) => {
@@ -32,6 +34,7 @@ const handlDashboardDblClick = (e: MouseEvent) => {
 <template>
   <div class="dashboard__container" @dblclick="handlDashboardDblClick">
     <PostIt v-for="memo in memoList" :key="memo.id" :memo="memo" />
+    <Toolbar />
   </div>
 </template>
 

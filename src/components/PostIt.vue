@@ -2,9 +2,7 @@
 import { ref, onMounted, onBeforeUnmount } from "vue";
 import { useMemoStore } from "../store/memo";
 
-interface Props {
-  memo: Memo;
-}
+type Props = { memo: Memo };
 
 const props = defineProps<Props>();
 const memoStore = useMemoStore();
@@ -105,13 +103,14 @@ const handlePostItMouseDown = (event: MouseEvent) => {
   position: absolute;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: start;
+  justify-content: center;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
 }
 
 .postit__container > .postit__header {
   width: 100%;
-  height: 8px;
+  height: 6px;
   display: flex;
   flex-direction: row;
   justify-content: end;
@@ -121,13 +120,13 @@ const handlePostItMouseDown = (event: MouseEvent) => {
 
 .postit__container > .postit__editor {
   box-sizing: border-box;
+  flex-grow: 1;
+  width: 100%;
   padding: 16px;
   background-color: #ffff99;
-  border: none;
-  outline: none;
-  width: 100%;
-  flex-grow: 1;
   min-width: 196px;
   min-height: 124px;
+  border: none;
+  outline: none;
 }
 </style>
