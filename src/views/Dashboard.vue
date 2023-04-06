@@ -18,7 +18,7 @@ const handlDashboardDblClick = (e: MouseEvent) => {
     width: 256,
     height: 128,
   };
-  const now = new Date();
+  const now = Date.now();
 
   memoStore.addMemo({
     id: uuid(),

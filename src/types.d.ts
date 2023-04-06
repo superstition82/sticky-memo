@@ -13,6 +13,6 @@ type Memo = {
   content: string;
   boundingRect: BoundingRect;
   position: Position;
-  createdAt: Date;
-  updatedAt: Date;
+  createdAt: number;
+  updatedAt: number;
 };

@@ -23,7 +23,7 @@ onMounted(() => {
         width: editorRef.value.parentElement?.clientWidth as number,
         height: editorRef.value.clientHeight,
       },
-      updatedAt: new Date(),
+      updatedAt: Date.now(),
     });
   });
   resizeObserver.value.observe(editorRef.value);
@@ -44,7 +44,7 @@ const handleContentChange = (event: Event) => {
   const node = event.target as HTMLTextAreaElement;
   memoStore.updateMemoById(props.memo.id, {
     content: node.value,
-    updatedAt: new Date(),
+    updatedAt: Date.now(),
   });
 };
 
@@ -61,7 +61,7 @@ const handlePostItMouseDown = (event: MouseEvent) => {
         x: e.pageX - dx,
         y: e.pageY - dy,
       },
-      updatedAt: new Date(),
+      updatedAt: Date.now(),
     });
   };
 
@@ -76,6 +76,11 @@ const handlePostItMouseDown = (event: MouseEvent) => {
     }
   );
 };
+
+// stop propagation mouse down event in editor
+const handleStopPropagation = (event: MouseEvent) => {
+  event.stopPropagation();
+};
 </script>
 
 <template>
@@ -86,6 +91,7 @@ const handlePostItMouseDown = (event: MouseEvent) => {
   >
     <div class="postit__header" @mousedown="handlePostItMouseDown"></div>
     <textarea
+      placeholder="✍️ edit me!"
       class="postit__editor"
       ref="editorRef"
       :value="props.memo.content"
@@ -94,6 +100,7 @@ const handlePostItMouseDown = (event: MouseEvent) => {
         height: memo.boundingRect.height + 'px',
       }"
       @change="handleContentChange"
+      @mousedown="handleStopPropagation"
     />
   </div>
 </template>
