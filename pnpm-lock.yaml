@@ -4,6 +4,7 @@ specifiers:
   '@types/uuid': ^9.0.1
   '@vitejs/plugin-vue': ^4.1.0
   pinia: ^2.0.33
+  pinia-plugin-persistedstate: ^3.1.0
   typescript: ^4.9.3
   uuid: ^9.0.0
   vite: ^4.2.0
@@ -12,6 +13,7 @@ specifiers:
 
 dependencies:
   pinia: 2.0.33_hmuptsblhheur2tugfgucj7gc4
+  pinia-plugin-persistedstate: 3.1.0_pinia@2.0.33
   uuid: 9.0.0
   vue: 3.2.47
 
@@ -483,6 +485,14 @@ packages:
 
   /picocolors/1.0.0:
     resolution: {integrity: sha512-1fygroTLlHu66zi26VoTDv8yRgm0Fccecssto+MhsZ0D/DGW2sm8E8AjW7NU5VVTRt5GxbeZ5qBuJr+HyLYkjQ==}
+
+  /pinia-plugin-persistedstate/3.1.0_pinia@2.0.33:
+    resolution: {integrity: sha512-8UN+vYMEPBdgNLwceY08mi5olI0wkYaEb8b6hD6xW7SnBRuPydWHlEhZvUWgNb/ibuf4PvufpvtS+dmhYjJQOw==}
+    peerDependencies:
+      pinia: ^2.0.0
+    dependencies:
+      pinia: 2.0.33_hmuptsblhheur2tugfgucj7gc4
+    dev: false
 
   /pinia/2.0.33_hmuptsblhheur2tugfgucj7gc4:
     resolution: {integrity: sha512-HOj1yVV2itw6rNIrR2f7+MirGNxhORjrULL8GWgRwXsGSvEqIQ+SE0MYt6cwtpegzCda3i+rVTZM+AM7CG+kRg==}

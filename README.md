@@ -1,1 +1,3 @@
-# sticky-memo
+# sticky memo ✍️
+
+- write everywhere

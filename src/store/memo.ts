@@ -1,11 +1,12 @@
 import { defineStore } from "pinia";
 
-export type MemoState = { memoList: Memo[] };
+type MemoState = { memoList: Memo[] };
 
 const initialState: MemoState = { memoList: [] };
 
 export const useMemoStore = defineStore("memo", {
   state: (): MemoState => initialState,
+  persist: true,
   actions: {
     addMemo(payload: Memo) {
       this.memoList = [...this.memoList, payload];

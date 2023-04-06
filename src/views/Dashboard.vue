@@ -5,10 +5,9 @@ import { useMemoStore } from "../store/memo";
 import PostIt from "../components/PostIt.vue";
 
 const memoStore = useMemoStore();
-
 const { memoList } = storeToRefs(memoStore);
 
-const onDblClick = (e: MouseEvent) => {
+const handlDashboardDblClick = (e: MouseEvent) => {
   const mousePosition = {
     x: e.pageX,
     y: e.pageY,
@@ -31,12 +30,12 @@ const onDblClick = (e: MouseEvent) => {
 </script>
 
 <template>
-  <div class="dashboard__container" @dblclick="onDblClick">
+  <div class="dashboard__container" @dblclick="handlDashboardDblClick">
     <PostIt v-for="memo in memoList" :key="memo.id" :memo="memo" />
   </div>
 </template>
 
-<style scoped>
+<style>
 .dashboard__container {
   width: 100%;
   height: 100%;
